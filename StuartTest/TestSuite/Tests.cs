@@ -41,11 +41,11 @@ namespace StuartTest.TestCase
             Assert.IsTrue(loginPage.LogIsPresent());
         }
 
-        [Test]
-        public void WrongPasswordLoginTest()
+        [TestCase(TestData.email, TestData.WrongPassword)]
+        public void WrongPasswordLoginTest(string email, string WrongPassword)
         {
             LoginPage loginPage = new LoginPage(Driver);
-            loginPage.LoginAs("strt.wa+test@gmail.com", "Test32234");
+            loginPage.LoginAs(email, WrongPassword);
 
             Assert.IsTrue(loginPage.LogIsPresent());
         }
