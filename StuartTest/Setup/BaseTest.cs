@@ -1,12 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using StuartTest.Handler;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StuartTest.Setup
 {
@@ -16,8 +11,8 @@ namespace StuartTest.Setup
 
         protected IWebDriver Driver;
 
-        //Setup: Anotacion de Nunit para ejecutar un metodo antes de cada test
-        //Metodo para iniciar el navegador de Chrome y navegar a una URL
+        // Setup: Nunit annotation to execute a method before each test
+        // Method to start the Chrome browser and navigate to a URL
         [SetUp]
         public void BeforeBaseTest()
         {
@@ -26,16 +21,8 @@ namespace StuartTest.Setup
             Driver.Navigate().GoToUrl("https://dashboard.sandbox.stuart.com/log-in");
         }
 
-        ////Choose Kind of transport
-        //public void ChooseTransport(By Transport)
-        //{
-        //    Transport = DashboardStuartPage.Transport;
-        //    WaitHandler.ElementIsPresent(Driver, Transport);
-        //    Driver.FindElement(Transport).Click();
-        //}
-
-        //TearDown: Anotacion Nunit para ejecutar un metodo despues de cada Test
-        //Metodo para cerrar el navegador
+        // TearDown: Nunit annotation to execute a method after each Test
+        // Method to close the browser
         [TearDown]
         public void AfterBaseTest()
         {

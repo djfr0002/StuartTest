@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StuartTest.Setup
 {
+    //Method to store test parameters used multiple times
     class TestData
     {
         public const string email = "strt.wa+test@gmail.com";

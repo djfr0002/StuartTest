@@ -1,14 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StuartTest.Handler
 {
-    //Clase para las esperas explicitas
+    //Class for explicit waits
     public class WaitHandler
     {
         public static bool ElementIsPresent(IWebDriver driver, By locator)

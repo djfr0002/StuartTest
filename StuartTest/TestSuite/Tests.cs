@@ -1,27 +1,17 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using StuartTest.PageObject;
 using StuartTest.Setup;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StuartTest.TestCase
 {
     /*
-     Clase que contiene los casos de prueba
+     Class containing the test cases
      */
     [TestFixture]
     public class Tests : BaseTest
-    {
-
-
-
-        //Metodo de Anotacion de Nunit para marcar a un metodo como caso de prueba automatizado
-        //Metodo de implementacion del caso de prueba login. Resultado esperado que el usuario se loguee correctamente.
+    {        
+        //Test to check the correct login
         [Test]
         public void SuccesfulLoginTest()
         {
@@ -32,6 +22,7 @@ namespace StuartTest.TestCase
             Assert.IsTrue(dashboardStuartPage.FormIsPresent()); 
         }
 
+        //Test to check the Incorrect User Login
         [TestCase(TestData.Wrongemail, TestData.Password)]
         public void WrongUserLoginTest(string Wrongemail, string Password)
         {
@@ -41,6 +32,7 @@ namespace StuartTest.TestCase
             Assert.IsTrue(loginPage.LogIsPresent());
         }
 
+        //Test to check the Incorrect Password Login
         [TestCase(TestData.email, TestData.WrongPassword)]
         public void WrongPasswordLoginTest(string email, string WrongPassword)
         {
@@ -50,13 +42,8 @@ namespace StuartTest.TestCase
             Assert.IsTrue(loginPage.LogIsPresent());
         }
 
-
-
-        //Metodo de Anotacion de Nunit para marcar a un metodo como caso de prueba automatizado
-        //Metodo de implementacion del caso de prueba login. Resultado esperado que el usuario se loguee correctamente.
-        [Test]
-
         /* Test to do a Delevery in a Motorbike*/
+        [Test]       
         public void DeliveryMotorBikeTest()
         {
             LoginPage loginPage = new LoginPage(Driver);
@@ -64,49 +51,45 @@ namespace StuartTest.TestCase
             DashboardStuartPage dashboardStuartPage = new DashboardStuartPage(Driver);
             dashboardStuartPage.StartDelivery(ChoosseScenario.RoleListScenario, ChoosseScenario.HappyPathSC);
             dashboardStuartPage.AddPickUp();
-            dashboardStuartPage.AddDropOff(Adrress.SaveAddresInputBDO, "octopu ", "", "", "", "", "", " ");
+            dashboardStuartPage.AddDropOff();
             dashboardStuartPage.ChooseTransport(Transport.Motorbike);
-            //dashboardStuartPage.DeliveryNow();
+            dashboardStuartPage.DeliveryNow();
             dashboardStuartPage.RequestDelivery();
-            //dashboardStuartPage.Check(/*"Antonio"*/);
         }
 
-        [Test]
 
         /* Test to do a Delevery in a Bike*/
+        [Test]
         public void DeliveryBikeTest()
         {
             LoginPage loginPage = new LoginPage(Driver);
             loginPage.LoginAs();
             DashboardStuartPage dashboardStuartPage = new DashboardStuartPage(Driver);
             dashboardStuartPage.StartDelivery(ChoosseScenario.RoleListScenario, ChoosseScenario.HappyPathSC);
-            dashboardStuartPage.AddPickUp(Adrress.SaveAddressInput,"La Sagrada Familia", "", "", "", "", "", "");
-            dashboardStuartPage.AddDropOff(Adrress.SaveAddresInputBDO, "octopu ", "", "", "", "", "", " ");
+            dashboardStuartPage.AddPickUp();
+            dashboardStuartPage.AddDropOff();
             dashboardStuartPage.ChooseTransport(Transport.Bike);
-            //dashboardStuartPage.DeliveryNow();
+            dashboardStuartPage.DeliveryNow();
             dashboardStuartPage.RequestDelivery();
-            //dashboardStuartPage.Check(/*"Antonio"*/);
         }
 
-        [Test]
         /* Test to do a Delevery in a MotorBikeXL*/
+        [Test]
         public void DeliveryMotorbikeXLTest()
         {
             LoginPage loginPage = new LoginPage(Driver);
             loginPage.LoginAs();
             DashboardStuartPage dashboardStuartPage = new DashboardStuartPage(Driver);
             dashboardStuartPage.StartDelivery(ChoosseScenario.RoleListScenario, ChoosseScenario.HappyPathSC);
-            dashboardStuartPage.AddPickUp(Adrress.SaveAddressInput, "La Sagrada Familia", "", "", "", "", "", "");
+            dashboardStuartPage.AddPickUp();
             dashboardStuartPage.AddDropOff(Adrress.SaveAddressInputDO, "John ", "", "", "", "", "", " ");
             dashboardStuartPage.ChooseTransport(Transport.Motorbikexl);
             dashboardStuartPage.DeliveryNow();
-            dashboardStuartPage.RequestDelivery();
-            //dashboardStuartPage.Check(/*"Antonio"*/);
+            dashboardStuartPage.RequestDelivery();            
         }
 
-
-        [Test]
         /* Test to do a Delevery in a Van*/
+        [Test]
         public void DeliveryVanTest()
         {
             LoginPage loginPage = new LoginPage(Driver);
@@ -116,9 +99,8 @@ namespace StuartTest.TestCase
             dashboardStuartPage.AddPickUp(Adrress.SaveAddresInputBDO, "octopu ", "", "", "", "", "", "");
             dashboardStuartPage.AddDropOff(Adrress.SaveAddressInput, "La Sagrada Familia", "", "", "", "", "", " ");
             dashboardStuartPage.ChooseTransport(Transport.Van);
-            //dashboardStuartPage.DeliveryNow();
+            dashboardStuartPage.DeliveryNow();
             dashboardStuartPage.RequestDelivery();
-            //dashboardStuartPage.Check(/*"Antonio"*/);
         }
 
 

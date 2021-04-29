@@ -1,17 +1,12 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using StuartTest.Handler;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace StuartTest.Setup
 {
     /*
-     *Clase para todas las page
+     *Class for all pages
      */
     public abstract class BasePage
     {
@@ -23,9 +18,10 @@ namespace StuartTest.Setup
         protected void waitElement(By Localizator)
         {
             WaitHandler.ElementIsPresent(Driver, Localizator);
+            
         }
 
-        //Metodo para escribir el usuario
+        //Generic Method to write in a box
         protected void Type(By Localizator, string text)
         {
             waitElement(Localizator);
@@ -37,21 +33,17 @@ namespace StuartTest.Setup
         protected void clickElement(By Localizator)
         {
             waitElement(Localizator);
-            Driver.FindElement(Localizator).Click();
+            Driver.FindElement(Localizator).Click();           
         }
 
-        //Generic function to click and wait
+        ////Generic function to click and wait
         protected void clickwaitElement(By Localizator)
         {
-            //Actions actions = new Actions(Driver);
-            //actions.MoveToElement(Driver.FindElement(TimeToDelivery.Now)).Perform();
-            //Driver.FindElement(TimeToDelivery.Now).SendKeys(Keys.PageDown);
             Thread.Sleep(2000);
             Driver.FindElement(Localizator).SendKeys(Keys.PageDown);
             Thread.Sleep(2000);
             waitElement(Localizator);
             Driver.FindElement(Localizator).Click();
-
         }
 
         //Select Item from to List
@@ -60,18 +52,15 @@ namespace StuartTest.Setup
             clickElement(Localizator);
             Thread.Sleep(1000);
             clickElement(Scenario);
-
         }
 
-
+        //Method to get text
         protected string getText(By Localizator)
         {
             string text;
             waitElement(Localizator);
             text = Driver.FindElement(Localizator).Text;
             return text;
-
-
         }
 
 

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" name="StuartTest.exe" fullname="C:/Users/dfranco/Documents/GIT/StuartTest/StuartTest/bin/Release/StuartTest.exe" testcasecount="8" result="Failed" start-time="2021-04-28T21:05:57.6698114Z" end-time="2021-04-28T21:07:31.7778803Z" duration="94.107522" total="8" passed="7" failed="1" inconclusive="0" skipped="0" warnings="0" asserts="3" random-seed="1035664240">
+  <command-line><![CDATA["C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\bin\Release\StuartTest.exe" ]]></command-line>
+  <filter />
+  <test-suite type="Assembly" id="1011" name="StuartTest.exe" fullname="C:/Users/dfranco/Documents/GIT/StuartTest/StuartTest/bin/Release/StuartTest.exe" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2021-04-28T21:05:57.6698114Z" end-time="2021-04-28T21:07:31.7778803Z" duration="94.107522" total="8" passed="7" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="3">
+    <environment framework-version="3.13.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.19042" platform="Win32NT" cwd="C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\bin\Release" machine-name="SLT2339" user="dfranco" user-domain="WERFEN" culture="es-ES" uiculture="en-US" os-architecture="x86" />
+    <settings>
+      <setting name="WorkDirectory" value="C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\bin\Release" />
+      <setting name="NumberOfTestWorkers" value="12" />
+    </settings>
+    <properties>
+      <property name="_PID" value="51836" />
+      <property name="_APPDOMAIN" value="StuartTest.exe" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="1012" name="StuartTest" fullname="StuartTest" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2021-04-28T21:05:57.6867262Z" end-time="2021-04-28T21:07:31.7778803Z" duration="94.090914" total="8" passed="7" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="3">
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1013" name="TestCase" fullname="StuartTest.TestCase" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2021-04-28T21:05:57.6877234Z" end-time="2021-04-28T21:07:31.7778803Z" duration="94.090327" total="8" passed="7" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="3">
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestFixture" id="1000" name="Tests" fullname="StuartTest.TestCase.Tests" classname="StuartTest.TestCase.Tests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2021-04-28T21:05:57.6897185Z" end-time="2021-04-28T21:07:31.7778803Z" duration="94.087975" total="8" passed="7" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="3">
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-case id="1007" name="DeliveryBikeTest" fullname="StuartTest.TestCase.Tests.DeliveryBikeTest" methodname="DeliveryBikeTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="1293306442" result="Passed" start-time="2021-04-28T21:05:57.6937430Z" end-time="2021-04-28T21:06:12.4307669Z" duration="14.737553" asserts="0" />
+          <test-case id="1006" name="DeliveryMotorBikeTest" fullname="StuartTest.TestCase.Tests.DeliveryMotorBikeTest" methodname="DeliveryMotorBikeTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="962015171" result="Passed" start-time="2021-04-28T21:06:12.4327612Z" end-time="2021-04-28T21:06:28.9071049Z" duration="16.474834" asserts="0" />
+          <test-case id="1008" name="DeliveryMotorbikeXLTest" fullname="StuartTest.TestCase.Tests.DeliveryMotorbikeXLTest" methodname="DeliveryMotorbikeXLTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="597694855" result="Passed" start-time="2021-04-28T21:06:28.9081034Z" end-time="2021-04-28T21:06:44.6602674Z" duration="15.752585" asserts="0" />
+          <test-case id="1010" name="DeliveryVanLaterTest" fullname="StuartTest.TestCase.Tests.DeliveryVanLaterTest" methodname="DeliveryVanLaterTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="672231265" result="Failed" label="Error" start-time="2021-04-28T21:06:44.6602674Z" end-time="2021-04-28T21:07:09.3260021Z" duration="24.666049" asserts="0">
+            <failure>
+              <message><![CDATA[OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":"#TimeToDelivery\.daySelect\-2021\-4\-28"}
+  (Session info: chrome=90.0.4430.93)]]></message>
+              <stack-trace><![CDATA[   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementById(String id)
+   at OpenQA.Selenium.By.<>c__DisplayClass16_0.<Id>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at StuartTest.Setup.BasePage.clickElement(By Localizator) in C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\Setup\BasePage.cs:line 41
+   at StuartTest.DashboardStuartPage.SlectDate() in C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\PageObject\DashboardStuartPage.cs:line 233
+   at StuartTest.TestCase.Tests.DeliveryVanLaterTest() in C:\Users\dfranco\Documents\GIT\StuartTest\StuartTest\TestSuite\Tests.cs:line 135]]></stack-trace>
+            </failure>
+          </test-case>
+          <test-case id="1009" name="DeliveryVanTest" fullname="StuartTest.TestCase.Tests.DeliveryVanTest" methodname="DeliveryVanTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="1913691682" result="Passed" start-time="2021-04-28T21:07:09.3260021Z" end-time="2021-04-28T21:07:24.2585034Z" duration="14.932548" asserts="0" />
+          <test-case id="1001" name="SuccesfulLoginTest" fullname="StuartTest.TestCase.Tests.SuccesfulLoginTest" methodname="SuccesfulLoginTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="236012624" result="Passed" start-time="2021-04-28T21:07:24.2595012Z" end-time="2021-04-28T21:07:27.0822885Z" duration="2.822824" asserts="1" />
+          <test-suite type="ParameterizedMethod" id="1005" name="WrongPasswordLoginTest" fullname="StuartTest.TestCase.Tests.WrongPasswordLoginTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2021-04-28T21:07:27.0822885Z" end-time="2021-04-28T21:07:29.5041107Z" duration="2.422063" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+            <test-case id="1004" name="WrongPasswordLoginTest(&quot;strt.wa+test@gmail.com&quot;,&quot;Test32234&quot;)" fullname="StuartTest.TestCase.Tests.WrongPasswordLoginTest(&quot;strt.wa+test@gmail.com&quot;,&quot;Test32234&quot;)" methodname="WrongPasswordLoginTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="1381691134" result="Passed" start-time="2021-04-28T21:07:27.0822885Z" end-time="2021-04-28T21:07:29.5031132Z" duration="2.420873" asserts="1" />
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="1003" name="WrongUserLoginTest" fullname="StuartTest.TestCase.Tests.WrongUserLoginTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2021-04-28T21:07:29.5041107Z" end-time="2021-04-28T21:07:31.7778803Z" duration="2.273319" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+            <test-case id="1002" name="WrongUserLoginTest(&quot;danielfrcoramos@gmail.com&quot;,&quot;Test!234&quot;)" fullname="StuartTest.TestCase.Tests.WrongUserLoginTest(&quot;danielfrcoramos@gmail.com&quot;,&quot;Test!234&quot;)" methodname="WrongUserLoginTest" classname="StuartTest.TestCase.Tests" runstate="Runnable" seed="401475996" result="Passed" start-time="2021-04-28T21:07:29.5041107Z" end-time="2021-04-28T21:07:31.7778803Z" duration="2.273265" asserts="1" />
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

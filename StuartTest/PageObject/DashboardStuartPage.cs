@@ -1,58 +1,54 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using StuartTest.Handler;
 using StuartTest.Setup;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace StuartTest
 {
+    //different classes to sort locators
+
+    //Locolaizator to kind of transport 
     public class Transport
-    {
-        //Locolaizator to kind of transport        
+    {      
         public static By Bike = By.Id("transport-bike");
         public static By Motorbike = By.Id("transport-motorbike");
         public static By Van = By.Id("transport-van");
         public static By Motorbikexl = By.Id("transport-motorbikexl");
     }
 
+    //Locolaizator different Address
     public class Adrress
     {
-        //Locolaizator different Address
         public static By SaveAddressInput = By.Id("savedPlaceFirstLine-1836604");
         public static By SaveAddressInputDO = By.Id("savedPlaceFirstLine-1833918");
         public static By SaveAddresInputBDO = By.Id("savedPlaceFirstLine-1630892");
     }
 
+    //Localizator time to delivery
     public class TimeToDelivery
     {
-        //Localizator time to delivery
         public static By Now = By.Id("now");
         public static By Later = By.Id("later");
         public static By SlectDate = By.Id("daySelect");
         public static By slotTime = By.Id("slotSelect");
-
     }
 
+    //Localizators Choose testing scenarios
     public class ChoosseScenario
     {
-        //Localizators Choose testing scenarios
         public static By RoleListScenario = By.Id("-label");
         public static By HappyPathSC = By.Id("-happyPath");
         public static By PackageCancelledSC = By.Id("-cancelation");
         public static By ExpiredPackage = By.Id("-expiration");
         public static By DriverReassignement = By.Id("-driverReassignation");
         public static By DriverWaitStatus = By.Id("-driverWaiting");
-        public static By ReturnDelivery = By.Id("return");
-        
+        public static By ReturnDelivery = By.Id("return");        
 
     }
 
-    /*Clase para representar la pagina del formulario empleado*/
+    /*Class to render the resubmit form page*/
     public class DashboardStuartPage : BasePage
     {
 
@@ -84,7 +80,6 @@ namespace StuartTest
         protected By AddDetailsInput = By.Id("pickUpCard-0-fields-field-comment");
         protected By SaveButtonInput = By.Id("pickUpCard-0-fields-field-saveAddress");
 
-
         //Localizators of DropOff
         protected By DropOffButton = By.XPath("//*[@id='dropOffCard-0']/div[1]/h2");
         protected By DOAddressInput = By.Id("dropOffCard-0-fields-field-address");
@@ -97,13 +92,22 @@ namespace StuartTest
         protected By OrderIDInput = By.Id("dropOffCard-0-fields-field-clientReference");
         protected By OrderInfirmotionInput = By.Id("dropOffCard-0-fields-field-packageDescription");
 
-
         //Localizator Request Delivery
         protected By Request = By.Id("requestButton");
 
-        //protected By CurrentDay = By.Id($"daySelect-{Time}-04-27");
+        protected By CurrentDay = By.Id($"daySelect-{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}");
+        protected By GetDayID(int days)
+        {
+            return By.Id($"TimeToDelivery.daySelect-{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day + days}");
+        }
 
-        //Choose the enviroment
+        // Increase the number of days
+        public void SelectDeliveryDate()
+        {
+            clickElement(GetDayID(2));
+        }
+
+        //Choose the environment
         //Choose the scenario
         public void StartDelivery(By Localizator, By Scenario)
         {
@@ -111,28 +115,24 @@ namespace StuartTest
             Thread.Sleep(5000);
             try
             {
-                
                 clickElement(Understood);
                 SelectItem(Localizator, Scenario);
                 clickElement(ApplyScenario);
-                
             }
 
             catch
             {
-                
                 SelectItem(Localizator, Scenario);
                 clickElement(ApplyScenario);
                 clickElement(Understood);
             }
+
 
 
         }
 
 
-
-
-        //Constructor. lanza una excepcion si el titulo de la pagina no es el correcto
+        //Builder throws an exception if the title of the page is not correct
         public DashboardStuartPage(IWebDriver driver)
         {
             Driver = driver;
@@ -143,8 +143,8 @@ namespace StuartTest
 
         }
 
-        //Metodo para detectar si el formulario esta cargado
-        //Retorna true si el elemento del formulario esta presente
+        //Method to detect if the form is loaded
+        //Returns true if the form element is present
         public bool FormIsPresent()
         {
             return WaitHandler.ElementIsPresent(Driver, Form);
@@ -152,7 +152,7 @@ namespace StuartTest
 
 
 
-        //Metodo para incluir direccion
+        //Method to include the address of pick up
         public void AddPickUp(By SuggestAddress, String address, string firstname, string lastname, string company, string phone, string email, string details)
         {            
             Type(AddressInput, address);
@@ -165,13 +165,14 @@ namespace StuartTest
             Type(AddDetailsInput, details);
         }
 
+        //Overload Method to  introduce address
         public void AddPickUp()
         {
             AddPickUp(Adrress.SaveAddressInput, "La Sagrada Familia", "", "", "", "", "", " ");
         }
 
 
-        //Metodo para incluir Receptor
+        //Method to include the address to drop off
         public void AddDropOff(By SuggestAddress, String addressD, string firstnameD, string lastnameD, string companyD, string phoneD, string emailD, string detailsD)
         {            
             Type(DOAddressInput, addressD);
@@ -184,41 +185,39 @@ namespace StuartTest
             Type(DOAddDetailsInput, detailsD);
         }
 
+        //Overload Method to  introduce address
+        public void AddDropOff()
+        {
+            AddDropOff(Adrress.SaveAddresInputBDO, "octopu ", "", "", "", "", "", " ");
+        }
+
         //Choose Kind of transport
         public void ChooseTransport(By transport)
         {
-            clickwaitElement(transport);
+            try 
+            {
+                clickwaitElement(transport);
+            }
+            catch 
+            {
+                throw new Exception("The means of transport does not exist");
+            }
+
+            
         }
 
-
+        //Method to choose delivery Now
         public void DeliveryNow()
         {
             clickElement(TimeToDelivery.Now);
         }
 
+
+        //Method to select to request delivery
         public void RequestDelivery()
         {
             clickElement(Request);
         }
-
-
-
-
-
-        //public void Check(/*string expectedText*/)
-        // {
-        //     //Tiempo para cargar la web
-        //     Thread.Sleep(3000);
-        //     string text = Driver.FindElement(FNameInput).Text;
-        //     //Una vez guardado se deberia probar asi
-        //     //Assert.AreEqual(text, expectedText);
-        //     // Hasta que no se guarda el texto no se puede coomprobar
-        //     Assert.IsNotNull(FNameInput);
-        // } 
-
-
-
-
 
 
     }

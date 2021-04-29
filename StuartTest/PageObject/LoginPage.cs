@@ -2,23 +2,21 @@
 using StuartTest.Handler;
 using StuartTest.Setup;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StuartTest.PageObject
 {
     public class LoginPage : BasePage
     {
   
-        //Localizadores
+        //Localizators
         protected By LoginTitle = By.XPath("//title[contains(text(),'Stuart')]");
         protected By UserInput = By.Id("email");
         protected By PasswordInput = By.Id("password");
         protected By LoginButton = By.Id("logInButton");
         //protected By LoginTitle = By.Id("Stuart");
 
+        //Builder throws an exception if the title of the page is not correct
         public LoginPage(IWebDriver driver)
         {
             Driver = driver;
@@ -33,18 +31,13 @@ namespace StuartTest.PageObject
             return WaitHandler.ElementIsPresent(Driver, LoginTitle);
         }
 
-
-
-        //Metodo para escribir la Contraseña
-
-
-        //Metodo para clicar en el Login
+        //Methot to perform the click in the login button
         public void ClickLoginButton()
         {
             Driver.FindElement(LoginButton).Click();
         }
 
-        //Metodo para loguearnos. Retorna la pagina de formulario de empleado
+        //Login method Return the form page for new job
         public LoginPage LoginAs(string user, string password)
         {
             Type(UserInput, user);
@@ -54,6 +47,7 @@ namespace StuartTest.PageObject
 
         }
 
+        //Method to overload the function login with the correct login
         public LoginPage LoginAs()
         {
             LoginAs("strt.wa+test@gmail.com", "Test!234");
